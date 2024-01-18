@@ -1,0 +1,37 @@
+{
+  "name": "quiz-game",
+  "module": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently --kill-others \"npm run dev:server\" \"npm run dev:unocss\"",
+    "dev:server": "bun run --hot --watch src/index.tsx",
+    "dev:unocss": "bunx unocss --watch",
+    "db:gen": "bunx drizzle-kit generate:sqlite",
+    "db:migrate": "bun ./src/migrate.ts",
+    "db:push": "bunx drizzle-kit push:sqlite",
+    "db:pull": "bunx drizzle-kit introspect:sqlite",
+    "db:seed": "bun ./src/seed.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@unocss/cli": "^0.58.3",
+    "bun-types": "^1.0.23",
+    "concurrently": "^8.2.2",
+    "drizzle-kit": "^0.20.13"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@elysiajs/html": "^0.8.0",
+    "@elysiajs/static": "^0.8.1",
+    "@libsql/client": "^0.4.0-pre.7",
+    "@lucia-auth/adapter-sqlite": "^2.0.1",
+    "dotenv": "^16.3.1",
+    "drizzle-orm": "^0.29.3",
+    "elysia": "^0.8.9",
+    "lucia": "^2.7.6",
+    "typed-html": "^3.0.1",
+    "unocss": "^0.58.3"
+  }
+}
